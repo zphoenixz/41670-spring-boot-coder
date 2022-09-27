@@ -1,4 +1,4 @@
-package com.coderhouse.springbootcoder.models.schemas.requests;
+package com.coderhouse.springbootcoder.entity.documents;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,13 +13,21 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 
+@Entity
+@Table(name="usuario")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UsuarioRequest {
+public class Usuario {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long idUsuario;
+    @Column(name = "NOMBRE")
     private String nombre;
+    @Column(name = "CELULAR")
     private String celular;
+    @Column(name = "EDAD")
     private Integer edad;
 }
 

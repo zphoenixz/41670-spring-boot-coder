@@ -1,7 +1,7 @@
 package com.coderhouse.springbootcoder.service;
 
-import com.coderhouse.springbootcoder.models.documents.Usuario;
-import com.coderhouse.springbootcoder.models.schemas.requests.UsuarioRequest;
+import com.coderhouse.springbootcoder.entity.documents.Usuario;
+import com.coderhouse.springbootcoder.entity.schemas.requests.UsuarioRequest;
 
 import java.util.Optional;
 

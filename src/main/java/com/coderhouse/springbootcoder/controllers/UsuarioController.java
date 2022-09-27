@@ -1,7 +1,7 @@
 package com.coderhouse.springbootcoder.controllers;
 
-import com.coderhouse.springbootcoder.models.documents.Usuario;
-import com.coderhouse.springbootcoder.models.schemas.requests.UsuarioRequest;
+import com.coderhouse.springbootcoder.entity.documents.Usuario;
+import com.coderhouse.springbootcoder.entity.schemas.requests.UsuarioRequest;
 import com.coderhouse.springbootcoder.service.UsuarioService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +34,7 @@ public class UsuarioController {
         }
     }
 
-    @PostMapping(value = "usuario", consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @PostMapping(value = "usuario", consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<?> guardarCliente(@RequestBody final UsuarioRequest usuarioRequest) {
         try {
             final Usuario usuarioGuardado = usuarioService.postNewUsuario(usuarioRequest);
@@ -44,6 +44,4 @@ public class UsuarioController {
             return ResponseEntity.internalServerError().body(null);
         }
     }
-
-
 }

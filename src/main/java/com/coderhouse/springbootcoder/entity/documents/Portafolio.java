@@ -1,4 +1,4 @@
-package com.coderhouse.springbootcoder.models.documents;
+package com.coderhouse.springbootcoder.entity.documents;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,23 +11,28 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 
 @Entity
-@Table(name="usuario")
+@Table(name="portafolio")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Usuario {
+public class Portafolio implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long idUsuario;
-    @Column(name = "NOMBRE")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(name = "name")
     private String nombre;
-    @Column(name = "CELULAR")
+    @Column(name = "phone")
     private String celular;
-    @Column(name = "EDAD")
+    @Column(name = "age")
     private Integer edad;
+    @Column(name = "address")
+    private String dirección;
+    @Column(name = "avatarUrl")
+    private String urlAvatar;
 }
 
