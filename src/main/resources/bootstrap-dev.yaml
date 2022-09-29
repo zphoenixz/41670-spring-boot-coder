@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: coder-dev
+  cloud:
+    config:
+      uri: http://localhost:8080
+      name: coder-dev
