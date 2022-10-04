@@ -7,6 +7,8 @@ import com.coderhouse.springbootcoder.entity.schemas.requests.UsuarioRequest;
 import com.coderhouse.springbootcoder.service.PortafolioService;
 import com.coderhouse.springbootcoder.service.UsuarioService;
 import lombok.RequiredArgsConstructor;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -27,11 +29,14 @@ import java.util.stream.StreamSupport;
 @RequestMapping("/api/portafolio")
 @RequiredArgsConstructor
 public class PortafolioController {
+    Logger logger = LogManager.getLogger(PortafolioController.class);
+
     @Autowired
     private final PortafolioService portafolioService;
 
     @GetMapping(value = "{id}", produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<?> read(@PathVariable(name = "id") final Long id) {
+
         final Optional<Portafolio> portafolio = portafolioService.findById(id);
         if (portafolio.isPresent()) {
             return ResponseEntity.ok(portafolio);
@@ -49,11 +54,20 @@ public class PortafolioController {
 
     @PostMapping(consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<?> savePortafolio(@RequestBody final PortafolioRequest portafolioRequest) {
+        logger.info("POST /api/portafolio");
+        logger.error("Oops something happened.");
         try {
+            if(portafolioRequest.getDirección().isEmpty()){
+                throw new Exception("No contiene la direccion del portafolio");
+            }
+            logger.info("Enviando el portafolioRequest al portafolioService");
             final Portafolio portafolio = portafolioService.save(portafolioRequest);
+            logger.debug("Tiempo de carga 123ms");
+            logger.info("Respuesta recibida: " + portafolio);
             return ResponseEntity.created(URI.create("")).body(portafolio);
         } catch (Exception e) {
             e.printStackTrace();
+            logger.error("Error enviando respuesta del controlador", e);
             return ResponseEntity.internalServerError().body(null);
         }
     }

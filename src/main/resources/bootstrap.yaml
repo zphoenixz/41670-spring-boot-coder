@@ -1,0 +1,17 @@
+server:
+  port: 8081
+aws.qa.password: abc123
+default.direccion: xyz
+default.nroCasa: 123
+spring:
+  application:
+    name: main-server
+  h2.console.enabled: true
+  datasource:
+    url: jdbc:h2:mem:coder-dev
+    driverClassName: org.h2.Driver
+    username: username
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <!--            <PatternLayout-->
+            <!--                    pattern="[%d] %t %level %c >> %msg %n" />-->
+<!--            <PatternLayout-->
+<!--                    pattern="[%d{yyyy-MM-dd HH:mm:ss}] %t %-5level %-55c{1.} >> %msg %n"/>-->
+                        <PatternLayout
+                                pattern="%style{%d{ISO8601}}{white} %highlight{%-5level}{FATAL=bg_red, ERROR=red, WARN=yellow, INFO=green} [%style{%t}{bright,blue}] %style{%C{1.}}{bright,yellow}: %msg%n%throwable" />
+        </Console>
+        <!--            <Policies>-->
+        <!--                &lt;!&ndash; rollover on startup, daily and when the file reaches-->
+        <!--                    10 MegaBytes &ndash;&gt;-->
+        <!--                <OnStartupTriggeringPolicy />-->
+        <!--                <SizeBasedTriggeringPolicy-->
+        <!--                        size="10 MB" />-->
+        <!--                <TimeBasedTriggeringPolicy />-->
+        <!--            </Policies>-->
+       <File name="CoderFile" fileName="./logs/Coder.log">
+           <PatternLayout
+                   pattern="[%d{yyyy-MM-dd HH:mm:ss}] %t %-5level %-55c{1.} >> %msg %n"/>
+       </File>
+    </Appenders>
+
+    <Loggers>
+        <!-- LOG everything at DEBUG level -->
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="CoderFile" />
+        </Root>
+
+        <!--        <Logger name="com.baeldung" level="trace"></Logger>-->
+    </Loggers>
+</Configuration>
