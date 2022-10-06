@@ -36,16 +36,16 @@ public class GlobalExceptionHandler {
 
 //    @ResponseBody
 //    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(ApiRestException.class)
-    public ResponseEntity<Response> messageErrorHandle(final ApiRestException e) {
-        final Response<String> result = new Response(
-                Instant.now(),
-                "[ApiRestException Response] - ApiRestException: " + e.getMessage(),
-                404,
-                "No encontrado");
-
-        return new ResponseEntity<>(result, HttpStatus.INTERNAL_SERVER_ERROR);
-    }
+//    @ExceptionHandler(ApiRestException.class)
+//    public ResponseEntity<Response> messageErrorHandle(final ApiRestException e) {
+//        final Response<String> result = new Response(
+//                Instant.now(),
+//                "[ApiRestException Response] - ApiRestException: " + e.getMessage(),
+//                404,
+//                "No encontrado");
+//
+//        return new ResponseEntity<>(result, HttpStatus.INTERNAL_SERVER_ERROR);
+//    }
 
     //TODO Con mapping
     @ResponseBody
@@ -54,6 +54,7 @@ public class GlobalExceptionHandler {
     public Map<String, String> handleValidationExceptions(
             final MethodArgumentNotValidException ex) {
         final Map<String, String> errors = new HashMap<>();
+
         ex.getBindingResult().getAllErrors().forEach((error) -> {
             final String fieldName = ((FieldError) error).getField();
             final String errorMessage = error.getDefaultMessage();
