@@ -1,6 +1,5 @@
 package com.coderhouse.springbootcoder.entity.schemas.responses;
 
-import java.sql.Timestamp;
 import java.time.Instant;
 
 import lombok.AllArgsConstructor;
