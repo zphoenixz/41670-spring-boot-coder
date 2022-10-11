@@ -34,18 +34,18 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(result, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-//    @ResponseBody
-//    @ResponseStatus(HttpStatus.BAD_REQUEST)
-//    @ExceptionHandler(ApiRestException.class)
-//    public ResponseEntity<Response> messageErrorHandle(final ApiRestException e) {
-//        final Response<String> result = new Response(
-//                Instant.now(),
-//                "[ApiRestException Response] - ApiRestException: " + e.getMessage(),
-//                404,
-//                "No encontrado");
-//
-//        return new ResponseEntity<>(result, HttpStatus.INTERNAL_SERVER_ERROR);
-//    }
+    @ResponseBody
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(ApiRestException.class)
+    public ResponseEntity<Response> messageErrorHandle(final ApiRestException e) {
+        final Response<String> result = new Response(
+                Instant.now(),
+                "[ApiRestException Response] - ApiRestException: " + e.getMessage(),
+                404,
+                "No encontrado");
+
+        return new ResponseEntity<>(result, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 
     //TODO Con mapping
     @ResponseBody

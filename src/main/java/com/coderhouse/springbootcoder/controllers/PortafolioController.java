@@ -79,16 +79,4 @@ public class PortafolioController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
-//    @ExceptionHandler(IndexOutOfBoundsException.class)
-//    public ResponseEntity<Response> indexOutOfBoundsException(IndexOutOfBoundsException e) {
-//        final Response<Response> result =
-//                new Response(
-//                        Instant.now(),
-//                "[PortafolioController] - IndexOutOfBoundsException- Not Found. " + e.getMessage(),
-//                        404,
-//                        "Error"
-//                );
-//        return new ResponseEntity<Response>(result, HttpStatus.IM_USED);
-//    }
 }

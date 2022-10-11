@@ -6,12 +6,22 @@ default.nroCasa: 123
 spring:
   application:
     name: main-server
-  h2.console.enabled: true
+#  h2.console.enabled: true
+#  datasource:
+#    url: jdbc:h2:mem:coder-dev
+#    driverClassName: org.h2.Driver
+#    username: username
+#    password: password
+#  jpa:
+#    database-platform: org.hibernate.dialect.H2Dialect
+#    defer-datasource-initialization: true
   datasource:
-    url: jdbc:h2:mem:coder-dev
-    driverClassName: org.h2.Driver
-    username: username
-    password: password
+    url: jdbc:mysql://localhost:3307/coder-dev?createDatabaseIfNotExist=true
+    username: root
+    password: root
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
-    defer-datasource-initialization: true
+    database: mysql
+    hibernate:
+      ddl-auto: update
+  jpa-hibernate:
+    dialect: org.hibernate.dialect.MySQL8Dialect
