@@ -40,7 +40,7 @@ public class Sesion implements Serializable {
     private String nombreDispositivo;
     //    @JsonIgnore
 //    @JsonBackReference
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "userId", nullable = false)
     private Usuario usuarioUsuario;
 }

@@ -41,7 +41,7 @@ public class Usuario implements Serializable {
     private Integer edad;
     @JsonIgnore
 //    @JsonManagedReference
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "usuarioUsuario")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "usuarioUsuario")
     private List<Sesion> sesiones;
 }
 
