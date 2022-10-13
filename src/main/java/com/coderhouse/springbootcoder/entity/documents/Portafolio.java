@@ -32,7 +32,7 @@ public class Portafolio implements Serializable {
     private Integer edad;
     @Column(name = "address")
     private String dirección;
-    @Column(name = "avatarUrl")
+    @Column(name = "avatar_url")
     private String urlAvatar;
 }
 

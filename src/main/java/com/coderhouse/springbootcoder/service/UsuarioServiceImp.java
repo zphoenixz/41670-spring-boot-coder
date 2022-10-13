@@ -6,15 +6,24 @@ import com.coderhouse.springbootcoder.repositories.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
 public class UsuarioServiceImp implements UsuarioService{
     private final UsuarioRepository usuarioRepository;
 
+    public Set<Usuario> getAllUsuarios(){
+
+        Set<Usuario> usuarios = usuarioRepository.fetchAllUsersByJoin();
+        return usuarios;
+    }
+
     public Optional<Usuario> getUsuarioById(final Long id){
-        return usuarioRepository.findById(id);
+        Optional<Usuario> usuario = usuarioRepository.findById(id);
+        return usuario;
     }
     public Usuario postNewUsuario(final UsuarioRequest usuarioRequest){
         final Usuario usuarioDoc = new Usuario();

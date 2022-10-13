@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.net.URI;
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/api")
@@ -23,6 +25,12 @@ import java.util.Optional;
 public class UsuarioController {
     @Autowired
     private final UsuarioService usuarioService;
+
+    @GetMapping(value = "usuario", produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<?> getAllUsuarios() {
+        final Set<Usuario> usuario = usuarioService.getAllUsuarios();
+        return ResponseEntity.ok(usuario);
+    }
 
     @GetMapping(value = "usuario/{id}", produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<?> getUsuarioById(@PathVariable(name = "id") final Long id) {

@@ -8,6 +8,7 @@ import com.coderhouse.springbootcoder.repositories.PortafolioRepository;
 import com.coderhouse.springbootcoder.repositories.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 import java.util.stream.Stream;
@@ -29,6 +30,8 @@ public class PortafolioServiceImp implements PortafolioService{
     }
 
     @Override
+    @Transactional
+//    @Transactional(readOnly = true)
     public Portafolio save(final PortafolioRequest portafolioRequest) {
         final Portafolio portafolioDoc = new Portafolio();
         portafolioDoc.setCelular(portafolioRequest.getCelular());
