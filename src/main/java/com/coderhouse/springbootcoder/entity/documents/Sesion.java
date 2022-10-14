@@ -38,7 +38,8 @@ public class Sesion implements Serializable {
     private String idDispositivo;
     @Column(name = "deviceName")
     private String nombreDispositivo;
-    //    @JsonIgnore
+
+//    @JsonIgnore
 //    @JsonBackReference
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "userId", nullable = false)

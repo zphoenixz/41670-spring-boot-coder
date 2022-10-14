@@ -30,8 +30,8 @@ public class PortafolioServiceImp implements PortafolioService{
     }
 
     @Override
-    @Transactional
-//    @Transactional(readOnly = true)
+//    @Transactional
+    @Transactional(readOnly = false)
     public Portafolio save(final PortafolioRequest portafolioRequest) {
         final Portafolio portafolioDoc = new Portafolio();
         portafolioDoc.setCelular(portafolioRequest.getCelular());

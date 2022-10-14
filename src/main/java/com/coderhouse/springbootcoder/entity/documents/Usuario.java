@@ -27,7 +27,6 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Transactional
 public class Usuario implements Serializable {
     @Id
     @Column(name = "userId")
@@ -39,9 +38,10 @@ public class Usuario implements Serializable {
     private String celular;
     @Column(name = "age")
     private Integer edad;
+
     @JsonIgnore
 //    @JsonManagedReference
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "usuarioUsuario")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "usuarioUsuario")
     private List<Sesion> sesiones;
 }
 

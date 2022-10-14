@@ -1,0 +1,25 @@
+
+1. mvn clean install
+2. docker build . -t coder-backend:v0.1
+3. docker images
+4. docker run -p 8081:8081 e2
+5. docker push usuario/imageId
+
+
+docker-compose up
+
+tareas-
+
+reemplazar el host mysql, el host va ser el nombre del contenedor
+saltarse los tests del mvn install para poder compilar el jar
+
+
+Path way para Deep microservices
+- spring neflix cloud
+- Spring Gateway: Permite controlar el flujo a una
+    nube de microservicios (seguridad, visibiladad, acceso)
+- Eureka Server: Me permite orquestrar multiples microservicios
+        HTTP es muy lento para usarlo como lenguaje entre servicios
+        Por eso usamos MQ (Message Queue), comunicarse a traves de inf
+        comprimida. (*RabbitMQ*, ZeroMQ)
+           - Escalabidad.

@@ -5,6 +5,7 @@ import com.coderhouse.springbootcoder.entity.schemas.requests.UsuarioRequest;
 import com.coderhouse.springbootcoder.repositories.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 import java.util.Set;
@@ -14,12 +15,12 @@ import java.util.Set;
 public class UsuarioServiceImp implements UsuarioService{
     private final UsuarioRepository usuarioRepository;
 
+    @Transactional
     public Set<Usuario> getAllUsuarios(){
-
         Set<Usuario> usuarios = usuarioRepository.fetchAllUsersByJoin();
         return usuarios;
     }
-
+    @Transactional
     public Optional<Usuario> getUsuarioById(final Long id){
         Optional<Usuario> usuario = usuarioRepository.findById(id);
         return usuario;
