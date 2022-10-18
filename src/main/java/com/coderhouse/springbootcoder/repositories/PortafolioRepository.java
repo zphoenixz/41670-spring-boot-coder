@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PortafolioRepository extends JpaRepository<Portafolio, Long> {
-
+//    List<Portafolio> findAllByPrice(double price, Pageable pageable);
 }

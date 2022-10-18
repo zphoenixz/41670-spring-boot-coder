@@ -7,6 +7,10 @@ import com.coderhouse.springbootcoder.entity.schemas.requests.UsuarioRequest;
 import com.coderhouse.springbootcoder.repositories.PortafolioRepository;
 import com.coderhouse.springbootcoder.repositories.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,20 +22,24 @@ import java.util.stream.Stream;
 public class PortafolioServiceImp implements PortafolioService{
     private final PortafolioRepository portafolioRepository;
 
+    @Autowired
+    MediaStorageService mediaStorageService;
 
     @Override
+    @Transactional(readOnly = true)
     public Stream<Portafolio> findAll() {
-        return portafolioRepository.findAll().stream();
+        Pageable firstPageWithTwoElements = PageRequest.of(0, 5, Sort.by("nombre").descending());
+        return portafolioRepository.findAll(firstPageWithTwoElements).stream();
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Optional<Portafolio> findById(final Long id) {
         return portafolioRepository.findById(id);
     }
 
     @Override
-//    @Transactional
-    @Transactional(readOnly = false)
+    @Transactional
     public Portafolio save(final PortafolioRequest portafolioRequest) {
         final Portafolio portafolioDoc = new Portafolio();
         portafolioDoc.setCelular(portafolioRequest.getCelular());
