@@ -15,6 +15,11 @@ spring:
 #  jpa:
 #    database-platform: org.hibernate.dialect.H2Dialect
 #    defer-datasource-initialization: true
+  data:
+    mongodb:
+      host: localhost
+      port: 27018
+      database: coder_dev
   datasource:
     url: jdbc:mysql://localhost:3307/coder_dev?createDatabaseIfNotExist=true
     username: root
