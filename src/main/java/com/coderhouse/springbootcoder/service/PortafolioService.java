@@ -7,7 +7,7 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 public interface PortafolioService {
-    Stream<Portafolio> findAll();
+    Stream<Portafolio> findAll(Integer page);
     Optional<Portafolio> findById(final Long id);
     Portafolio save(final PortafolioRequest portafolioRequest);
 }
