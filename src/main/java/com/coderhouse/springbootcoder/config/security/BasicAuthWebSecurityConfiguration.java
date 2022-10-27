@@ -28,11 +28,13 @@ public class BasicAuthWebSecurityConfiguration
     @Bean
     protected UserDetailsService userDetailsService() {
         InMemoryUserDetailsManager inMemoryUserDetailsManager = new InMemoryUserDetailsManager();
-        UserDetails user1 = User.builder().username("myUser2").password("myPassword2").roles("USER").build();
+        UserDetails user1 = User.builder().username("myUser2").password(
+                passwordEncoder().encode("myPassword2")
+        ).roles("USER").build();
 //        UserDetails user2 = User.builder().username("admin").password("password").roles("ADMIN").build();
         inMemoryUserDetailsManager.createUser(user1);
 //        inMemoryUserDetailsManager.createUser(user2);
-        return inMemoryUserDetailsManager;
+        return new InMemoryUserDetailsManager(user1);
     }
 
     @Bean
