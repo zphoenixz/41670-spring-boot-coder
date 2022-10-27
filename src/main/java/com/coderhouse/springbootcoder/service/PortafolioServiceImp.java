@@ -27,8 +27,8 @@ public class PortafolioServiceImp implements PortafolioService{
 
     @Override
     @Transactional(readOnly = true)
-    public Stream<Portafolio> findAll() {
-        Pageable firstPageWithTwoElements = PageRequest.of(0, 5, Sort.by("nombre").descending());
+    public Stream<Portafolio> findAll(Integer page) {
+        Pageable firstPageWithTwoElements = PageRequest.of(page, 5, Sort.by("nombre").descending());
         return portafolioRepository.findAll(firstPageWithTwoElements).stream();
     }
 
