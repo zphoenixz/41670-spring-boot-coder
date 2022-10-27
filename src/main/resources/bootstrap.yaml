@@ -30,3 +30,7 @@ spring:
       ddl-auto: update
   jpa-hibernate:
     dialect: org.hibernate.dialect.MySQL8Dialect
+#  security:
+#    user:
+#      name: myUser1
+#      password: myPassword1
