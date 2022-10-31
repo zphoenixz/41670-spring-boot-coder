@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Set;
 
 @Repository
-public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
+public interface UserOldRepository extends JpaRepository<Usuario, Long> {
     @Query(value = "FROM Usuario")
     Set<Usuario> fetchAllUsersByJoin();
 }

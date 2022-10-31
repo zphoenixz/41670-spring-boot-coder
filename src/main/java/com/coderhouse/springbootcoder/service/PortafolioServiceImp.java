@@ -1,11 +1,8 @@
 package com.coderhouse.springbootcoder.service;
 
 import com.coderhouse.springbootcoder.entity.documents.Portafolio;
-import com.coderhouse.springbootcoder.entity.documents.Usuario;
 import com.coderhouse.springbootcoder.entity.schemas.requests.PortafolioRequest;
-import com.coderhouse.springbootcoder.entity.schemas.requests.UsuarioRequest;
 import com.coderhouse.springbootcoder.repositories.PortafolioRepository;
-import com.coderhouse.springbootcoder.repositories.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;

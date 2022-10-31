@@ -1,7 +1,6 @@
 package com.coderhouse.springbootcoder.repositories;
 
 import com.coderhouse.springbootcoder.entity.documents.Portafolio;
-import com.coderhouse.springbootcoder.entity.documents.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

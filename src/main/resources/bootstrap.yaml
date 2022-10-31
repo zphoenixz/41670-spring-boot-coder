@@ -34,3 +34,9 @@ spring:
 #    user:
 #      name: myUser1
 #      password: myPassword1
+
+coder_back:
+  app:
+    jwt:
+      secret: dontTellAnyoneOk98herfg9werhfn9p034h90werbgnw9p84erbtn9p3w48h9tj0rsfdgrtbdfghretrtyerdfgdfgertertertsdf
+      expiration: 100000
